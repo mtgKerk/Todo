@@ -32,7 +32,7 @@
                                 <td><input id="check<?php echo $counter?>" type="button" class="<?php echo $switch ?>" onclick="done(<?php echo $counter?>);"></td>
                                 <td><input id="delete" type="button" value="Delete Entry" onclick="delet();"/></td>
                             </tr>
-            <?php
+                                <?php
                                 $counter=$counter+1;
                     }
                  fclose($entryFile);
