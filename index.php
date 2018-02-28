@@ -21,13 +21,13 @@
                     <td><input id="delete" type="button" value="Delete Entry" onclick="delet();"/></td>
             </tr>
             <?php
-                $entryFile = fopen("resources/ListEntries.txt","r") or die("File not found?"));
+                $entryFile = fopen("resources/ListEntries.txt","r") or die("File not found?");
                     $splitter = "";
                         while(($line = fgets($entryFile)) != false) {
                             $split = array explode($splitter,$line);
                             echo '<tr>'
-                            . '<td class="task">';
-                            . '</tr>';
+                            echo '<td class="task">';
+                            echo '</tr>'; /* add rows to table for each entry in the txt file*/
                     }
                  fclose($entryFile);
             ?>
