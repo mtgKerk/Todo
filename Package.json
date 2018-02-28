@@ -1,0 +1,10 @@
+{
+    "name": "todo",
+    "version": "0.5",
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "node": false
+        }
+    }
+}
