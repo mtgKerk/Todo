@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Todo</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script type="text/javascript" src="javascript/app.js"></script>
+    </head>
+    <body class="center">
+        
+        <div class="center">
+        <h1>Simple Todo list</h1>
+        <table>
+            <tr>
+                <th>Tasks</th>
+                <th>Done</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td class="task">test</td>
+                <td><input id="check" type="button" class="done" onclick="done();"></td>
+                <td><input id="delete" type="button" value="Delete Entry" onclick="delete();"/></td>
+            </tr>
+        </table>
+        </div>
+        
+        <form name="newTodo" onsubmit="return validateForm()" method="post">
+            <textarea placeholder="Insert new Todo here"></textarea>
+            <input type="submit" value="Add to list"/>
+        </form>
+        
+        <input id="deleteAll" type="button" value="Delete Completed" class="delete" onclick="deleteAll();"/>
+    </body>
+</html>
