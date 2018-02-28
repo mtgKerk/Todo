@@ -17,12 +17,12 @@ body {
     background-size: cover;
 }
 
-input:not(.done):not(.undone) {
+input:not(.done):not(.notDone) {
     background-color: bisque;
     color: brown;
 }
 
-.done, .undone {
+.done, .notDone {
     margin: auto;
     width: 100%;
     height: 100%;
@@ -30,7 +30,7 @@ input:not(.done):not(.undone) {
 
 .done {
     background-image: url(resources/checkmark.svg);
-    background-size: cover;
+    background-size: contain;
 }
 
 .notDone {
@@ -51,7 +51,6 @@ input:not(.done):not(.undone) {
     width: 70%;
 }
 
-.task, .done, .undone {
-    border-bottom: 1px dashed;
+.task, .done, .notDone {
     padding: 5px;
 }

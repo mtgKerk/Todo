@@ -3,7 +3,7 @@
     <head>
         <title>Todo</title>
         <link rel="stylesheet" href="stylesheet.css">
-        <script type="text/javascript" src="javascript/app.js"></script>
+        <script type="text/javascript" src="javascript/app.php"></script>
     </head>
     <body class="center">
         
@@ -15,19 +15,25 @@
                 <th>Done</th>
                 <th></th>
             </tr>
-            <tr id="entry">
-                    <td class="task">test</td>
-                    <td><input id="check" type="button" class="done" onclick="done();"></td>
-                    <td><input id="delete" type="button" value="Delete Entry" onclick="delet();"/></td>
-            </tr>
+            
             <?php
-                $entryFile = fopen("resources/ListEntries.txt","r") or die("File not found?"));
-                    $splitter = "";
+                $entryFile = fopen("resources/ListEntries.txt","r") or die("File not found?");
+                    $counter = 0;
                         while(($line = fgets($entryFile)) != false) {
-                            $split = array explode($splitter,$line);
-                            echo '<tr>'
-                            . '<td class="task">';
-                            . '</tr>';
+                            $split = explode(" ",$line); ?>
+                            <tr>
+                            <td class="task"><?php echo $split[0] ?></td>
+            
+                            <?php if($split[1]==1){
+                                $switch = "done";
+                            }
+                            else {$switch="notDone"; } ?>
+            
+                                <td><input id="check<?php echo $counter?>" type="button" class="<?php echo $switch ?>" onclick="done(<?php echo $counter?>);"></td>
+                                <td><input id="delete" type="button" value="Delete Entry" onclick="delet();"/></td>
+                            </tr>
+            <?php
+                                $counter=$counter+1;
                     }
                  fclose($entryFile);
             ?>
