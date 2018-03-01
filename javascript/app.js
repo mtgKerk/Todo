@@ -4,16 +4,16 @@
 function done(x) {
     document.getElementById('check'+x).onclick = undone;
     document.getElementById('check'+x).setAttribute("class","done");
-    //functionality to change entries status to completed
+    //functionality to change entries status to completed in file
 }
 
 function undone(x) {
     document.getElementById('check'+x).onclick = done;
     document.getElementById('check'+x).setAttribute("class","notDone");
-    //functionality to change entries status to incomplete
+    //functionality to change entries status to incomplete in file 
 }
 
-//move following into index.php to properly work with php and js together
+//move following into index.php to properly work with php and js together??
 
 function deleteAll() {
     //funcitonality to delete all completed entries
@@ -31,7 +31,7 @@ function deleteAll() {
 }
 
 function delet() {
-    //functionality to delete all 
+    //functionality to delete a specific entry
 }
 
 function validateForm() {

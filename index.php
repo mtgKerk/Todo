@@ -3,7 +3,7 @@
     <head>
         <title>Todo</title>
         <link rel="stylesheet" href="stylesheet.css">
-        <script type="text/javascript" src="javascript/app.php"></script>
+        <script type="text/javascript" src="javascript/app.js"></script>
     </head>
     <body class="center">
         
