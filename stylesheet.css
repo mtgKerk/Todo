@@ -8,6 +8,11 @@ th {
     border-bottom: 2px solid;
 }
 
+td {
+    border-bottom: 2px dashed;
+    height: 100%;
+}
+
 form {
     margin-top: 2%;
 }
@@ -35,7 +40,7 @@ input:not(.done):not(.notDone) {
 
 .notDone {
     background-image: url(resources/cross.svg);
-    background-size: cover;
+    background-size: auto;
 }
 
 .delete {
@@ -49,8 +54,4 @@ input:not(.done):not(.notDone) {
 
 .task {
     width: 70%;
-}
-
-.task, .done, .notDone {
-    padding: 5px;
 }
