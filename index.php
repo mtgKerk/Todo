@@ -9,10 +9,10 @@
                 var con = new XMLHttpRequest();
                 con.onreadystatechange = function(){
                     if(con.readyState==4){
-                           header("Refresh:0");
+                        location.reload(true);
                     }
                 };
-                con.open("GET", "php/functions.php?q=delAll", true);
+                con.open("GET", "php/functions.php?q=delAll", false);
                 con.send();
             }
         </script>
