@@ -10,7 +10,6 @@ th {
 
 td {
     border-bottom: 2px dashed;
-    height: 100%;
 }
 
 form {
@@ -35,12 +34,12 @@ input:not(.done):not(.notDone) {
 
 .done {
     background-image: url(resources/checkmark.svg);
-    background-size: contain;
+    background-size: cover;
 }
 
 .notDone {
     background-image: url(resources/cross.svg);
-    background-size: auto;
+    background-size: cover;
 }
 
 .delete {

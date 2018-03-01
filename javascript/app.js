@@ -2,33 +2,22 @@
 'use strict';
 
 function done(x) {
-    document.getElementById('check'+x).onclick = undone;
-    document.getElementById('check'+x).setAttribute("class","done");
+    var button = document.getElementById('check'+x);
+    if(button.getAttribute("clas","done")){
+        button.setAttribute("class","done");
+    }
+    else {
+        button.setAttribute("class","notDone");
+    }
     //functionality to change entries status to completed in file
-}
-
-function undone(x) {
-    document.getElementById('check'+x).onclick = done;
-    document.getElementById('check'+x).setAttribute("class","notDone");
-    //functionality to change entries status to incomplete in file 
 }
 
 //move following into index.php to properly work with php and js together??
 
-function deleteAll() {
+/*function deleteAll() {
     //funcitonality to delete all completed entries
-    <?php
-        $entryFile = fopen("resources/ListEntries.txt","r,w") or die("File not found?");
-        while(($line=fgets($entryFile)!=false){
-            if(explode(" ",$line)[1]==1){
-                $entries = file_get_contents($entryFile);
-                $entries = str _replace($line,'',$entries);
-                file_put_contents($entryFile, $entries);
-            }
-        }
-    ?>
-    
-}
+    alert("test");
+}*/
 
 function delet() {
     //functionality to delete a specific entry
