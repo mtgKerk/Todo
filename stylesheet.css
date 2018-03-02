@@ -43,7 +43,11 @@ input:not(.done):not(.notDone) {
 }
 
 .delete {
-    float: right;
+    display: none;
+}
+
+.td:hover & .delete {
+    display: block;
 }
 
 .center {

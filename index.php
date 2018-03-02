@@ -39,9 +39,21 @@
                 };
             }
             
-            function switch(){
+            function done(x){
                 var con = new XMLHttpRequest();
-                con.open("GET", "/todo/Todo/php/functions.php?q=switch&param="+x, true);
+                con.open("GET", "/todo/Todo/php/functions.php?q=done&param="+x, true);
+                con.send();
+                con.onreadystatechange = function(){
+                if(con.readyState==4){
+                    location.reload(true);
+                    }
+                };
+            }
+            
+            function change(x){
+                var y = document.getElementById("task"+x);
+                var con = new XMLHttpRequest();
+                con.open("GET", "/todo/Todo/php/functions.php?q=change&param="+x+"&new="+y.innerHTML, true);
                 con.send();
                 con.onreadystatechange = function(){
                 if(con.readyState==4){
@@ -68,14 +80,14 @@
                         while(($line = fgets($entryFile)) != false) {
                             $split = explode(" ",$line); ?>
                             <tr>
-                            <td class="task"><?php echo $split[0] ?></td>
+                            <td class="task<?php $counter ?>" contenteditable="true" onkeyup="change(<?php echo $counter?>)"><?php echo $split[0] ?></td>
             
                             <?php if($split[1]==1){
                                 $switch = "done";
                             }
                             else {$switch="notDone"; } ?>
             
-                                <td><input id="check<?php echo $counter?>" type="button" class="<?php echo $switch ?>" onclick="switch(<?php echo $counter?>);"></td>
+                                <td><input id="check<?php $counter ?>" type="button" class="<?php echo $switch ?>" onclick="done(<?php echo $counter?>);"></td>
                                 <td><input id="delete" type="button" value="Delete Entry" onclick="delet(<?php echo $counter ?>);"/></td>
                             </tr>
                                 <?php
