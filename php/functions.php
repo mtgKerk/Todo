@@ -2,7 +2,7 @@
     $q = $_REQUEST["q"];
 
     if($q == "delAll"){
-        $entryFile = fopen("../resources/ListEntries.txt","r,w") or die("File not found?");
+        $entryFile = fopen("../resources/ListEntries.txt","r,w") or die("error message");
         fwrite($entryFile,"test4 0 \n");
         /*while(($line=fgets($entryFile)!=false)){
             if(explode(" ",$line)[1]==1){
