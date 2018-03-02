@@ -7,18 +7,52 @@
         <script>
             function deleteAll(){
                 var con = new XMLHttpRequest();
+                con.open("GET", "/todo/Todo/php/functions.php?q=delAll", true);
+                con.send();
                 con.onreadystatechange = function(){
                     if(con.readyState==4){
-                        //location.reload(true);
+                        location.reload(true);
                     }
                 };
-                con.open("GET", "http://localhost/Todo/php/functions.php?q=delAll", true);
+            }
+            
+            function delet(x){
+                var con = new XMLHttpRequest();
+                con.open("GET", "/todo/Todo/php/functions.php?q=del&param="+x, true);
                 con.send();
+                con.onreadystatechange = function(){
+                    if(con.readyState==4){
+                        location.reload(true);
+                    }
+                };
+            }       
+            
+            function addEntry(){
+                var x = document.forms["newTodo"]["thing"].value;
+                var con = new XMLHttpRequest();
+                con.open("GET", "/todo/Todo/php/functions.php?q=add&param="+x, true);
+                con.send();
+                con.onreadystatechange = function(){
+                if(con.readyState==4){
+                    location.reload(true);
+                    }
+                };
+            }
+            
+            function switch(){
+                var con = new XMLHttpRequest();
+                con.open("GET", "/todo/Todo/php/functions.php?q=switch&param="+x, true);
+                con.send();
+                con.onreadystatechange = function(){
+                if(con.readyState==4){
+                    location.reload(true);
+                    }
+                };
             }
         </script>
     </head>
     <body class="center">
-        
+                
         <div class="center">
         <h1>Simple Todo list</h1>
         <table id="entries">
@@ -29,7 +63,7 @@
             </tr>
             
             <?php
-                $entryFile = fopen("resources/ListEntries.txt","r") or die("File not found?");
+                $entryFile = fopen("resources/ListEntries.txt","r") or die("something");
                     $counter = 0;
                         while(($line = fgets($entryFile)) != false) {
                             $split = explode(" ",$line); ?>
@@ -41,8 +75,8 @@
                             }
                             else {$switch="notDone"; } ?>
             
-                                <td><input id="check<?php echo $counter?>" type="button" class="<?php echo $switch ?>" onclick="done(<?php echo $counter?>);"></td>
-                                <td><input id="delete" type="button" value="Delete Entry" onclick="delet();"/></td>
+                                <td><input id="check<?php echo $counter?>" type="button" class="<?php echo $switch ?>" onclick="switch(<?php echo $counter?>);"></td>
+                                <td><input id="delete" type="button" value="Delete Entry" onclick="delet(<?php echo $counter ?>);"/></td>
                             </tr>
                                 <?php
                                 $counter=$counter+1;
